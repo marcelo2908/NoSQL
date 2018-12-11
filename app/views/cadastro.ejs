@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Cadastro de Equipamentos</title>
+		
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+	</head>
+
+	<body class="body-index">
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<form class="form-inline form-entrar">
+					<div class="form-group">				
+							<img src="images/logo_equipamentos.jpg">
+					</div>
+				</form>
+			</div>
+			
+		</nav>
+
+	    <div class="container">
+
+	    	<% if(validacao.length > 0) { %>
+	    		<div class="alert alert-danger">
+	    			<strong>Atenção!</strong>
+	    			<ul>
+	    				<% for(var i = 0; i < validacao.length; i++) { %>
+	    					<li><%=validacao[i].msg%></li>
+	    				<% } %>
+	    			</ul>
+	    		</div>
+	    	<% } %>
+
+			<form class="form-cadastro" action="/cadastrar" method="post">
+			
+				<div class="row">
+					<div class="col-xs-4">
+						<div class="form-group">
+							<label for="cd_equipamento" class="col-form-label">Código Equipamento</label>
+							<input type="cd_equipamento" value="<%=dadosForm.cd_equipamento%>" class="form-control" id="cd_equipamento" name="cd_equipamento" placeholder="Digite o código do equipamento">
+						</div>
+					</div>
+					
+					<div class="col-xs-4">
+						<div class="form-group">
+							<label for="ds_equipamento" class="col-form-label">Modelo Equipamento</label>
+							<input type="ds_equipamento" value="<%=dadosForm.ds_equipamento%>" class="form-control" id="ds_equipamento" name="ds_equipamento" placeholder="Modelo do equipamento">
+						</div>
+					</div>
+					
+					
+				</div>
+				
+				<div class="form-group row">
+					<div class="col-xs-4">
+						<div class="form-group">
+							<label for="localizacao" class="col-sm-2 col-form-label">Localização</label>
+							<input type="localizacao" value="<%=dadosForm.localizacao%>" class="form-control" id="localizacao" name="localizacao" placeholder="Insira a latitude e longitude separados por vírgula">
+						</div>
+					</div>
+
+					<div class="col-xs-4">
+						<div class="form-group">
+							<label for="contador" class="col-sm-2 col-form-label">Contador</label>
+							<input type="contador" value="<%=dadosForm.contador%>" class="form-control" id="contador" name="contador" placeholder="Insira o contador dos equipamentos">
+						</div>
+					</div>
+        		<div class="col-xs-3"></div>
+				</div>		
+				<div class="form-group row">
+					<button type="submit" class="btn btn-primary">Confirmar cadastro</button>
+				</div>
+				</form>
+				</div>	
+		</body>
+</html>
